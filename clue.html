@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gallery | Photos</title>
+</head>
+
+<body>
+    <h1>Gallery</h1>
+
+    <img src="img/0.jpeg" width="500vh" id="image">
+    <br>
+    <div id="caption">Capt1</div>
+
+    <br>
+    <a href="#" onclick="previous()">prev</a>
+
+    <a href="#" onclick="change(0)">1</a>
+    <a href="#" onclick="change(1)">2</a>
+    <a href="#" onclick="change(2)">3</a>
+    <a href="#" onclick="change(3)">4</a>
+    <a href="#" onclick="change(4)">5</a>
+
+    <a href="#" onclick="next()">next</a>
+</body>
+
+<script>
+    let number = 0;
+    let caption = document.getElementById("caption");
+    let text = ['Capt1', 'Capt2', 'Capt3', 'Capt4', 'Capt5'];
+
+    function change(no) {
+        number = no;
+        let loc = 'img/' + no + '.jpeg';
+        document.getElementById("image").src = loc;
+        document.getElementById("caption").innerText = text[no];
+        return false;
+    }
+
+    function previous() {
+        number = number - 1;
+
+        if (number < 0) {
+            number = 4;
+        }
+
+        let loc = "img/" + number + '.jpeg';
+        document.getElementById("image").src = loc;
+        document.getElementById("caption").innerText = text[number];
+    }
+
+    function next() {
+        number = number + 1;
+
+        if (number > 4) {
+            number = 0;
+        }
+
+        let loc = 'img/' + number + '.jpeg';
+        document.getElementById("image").src = loc;
+        document.getElementById("caption").innerText = text[number];
+        return false;
+    }
+</script>
+
+</html>
